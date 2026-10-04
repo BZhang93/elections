@@ -254,7 +254,7 @@ async function upsertCitation(client, c) {
   const { rows } = await client.query(
     `insert into citations (url, source_type, title, publisher, raw_excerpt)
      values ($1, $2, $3, $4, $5)
-     on conflict (url, coalesce(raw_excerpt, '')) do update set title = excluded.title
+     on conflict (url, raw_excerpt) do update set title = excluded.title
      returning id`,
     [c.url, c.source_type, c.title ?? null, c.publisher ?? null, c.raw_excerpt ?? null]
   );
