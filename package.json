@@ -1,0 +1,21 @@
+{
+  "name": "elections",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend",
+    "ingestion"
+  ],
+  "scripts": {
+    "db:migrate": "node db/migrate.js",
+    "db:seed": "node db/seed.js",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "ingest": "npm run ingest -w ingestion"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0"
+  }
+}
