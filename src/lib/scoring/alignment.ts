@@ -1,11 +1,22 @@
 export type ScoringItemType = 'platform_item' | 'policy_item' | 'voting_history_item';
+export type Side = 'a' | 'b';
+export type Stance = Side | 'none';
+
+export interface ScoringTopic {
+  id: string;
+  slug: string;
+  label: string;
+  sideALabel: string;
+  sideBLabel: string;
+  side: Side | null; // which side this bullet takes on this topic
+}
 
 export interface ScoringItem {
   id: string;
   type: ScoringItemType;
-  text: string; // the bullet/stance text used for keyword matching
+  text: string;
   stanceSummary: string | null;
-  topicIds: string[];
+  topics: ScoringTopic[];
 }
 
 export interface UserRatingInput {
@@ -15,8 +26,17 @@ export interface UserRatingInput {
   importanceScore: number | null; // 0..2
 }
 
+export interface UserPriority {
+  rank: number; // 1 = most important
+  stance: Stance;
+  label: string;
+  sideALabel: string;
+  sideBLabel: string;
+}
+
 export interface UserAlignmentInputs {
-  topicPriorities: Map<string, number>; // topic_id -> weight 0..1
+  priorities: Map<string, UserPriority>; // topic_id -> priority
+  rankedTopicCount: number;
   ratings: Map<string, UserRatingInput>; // keyed by `${targetType}:${targetId}`
   freetextKeywords: string[];
 }
@@ -26,8 +46,8 @@ export type HighlightStatus = 'aligned' | 'opposing' | 'neutral';
 export interface ItemSignal {
   signal: -1 | 0 | 1;
   weight: number;
-  source: 'user_rated' | 'inferred_from_freetext' | 'no_signal';
-  reason: string | null;
+  source: 'user_rated' | 'stance_match' | 'inferred_from_freetext';
+  reason: string;
 }
 
 export interface AlignmentResult {
@@ -41,13 +61,9 @@ function ratingKey(targetType: ScoringItemType, targetId: string): string {
   return `${targetType}:${targetId}`;
 }
 
-function maxTopicWeight(topicIds: string[], priorities: Map<string, number>): number {
-  let max = 0;
-  for (const topicId of topicIds) {
-    const w = priorities.get(topicId);
-    if (w !== undefined && w > max) max = w;
-  }
-  return max;
+// Rank 1 gets weight 1.0, the lowest-ranked topic gets 1/N.
+export function rankWeight(rank: number, rankedTopicCount: number): number {
+  return (rankedTopicCount - rank + 1) / rankedTopicCount;
 }
 
 function matchesFreetextKeyword(item: ScoringItem, keywords: string[]): string | null {
@@ -58,44 +74,68 @@ function matchesFreetextKeyword(item: ScoringItem, keywords: string[]): string |
   return null;
 }
 
+function sideLabel(priority: UserPriority, side: Side): string {
+  return side === 'a' ? priority.sideALabel : priority.sideBLabel;
+}
+
 export function computeCandidateAlignment(items: ScoringItem[], inputs: UserAlignmentInputs): AlignmentResult {
   const perItemSignals = new Map<string, ItemSignal>();
-  let sum = 0;
-  let count = 0;
+  let weightedSum = 0;
+  let totalWeight = 0;
 
   for (const item of items) {
+    // Best-ranked topic on this bullet that the user has a priority for.
+    let best: { topic: ScoringTopic; priority: UserPriority } | null = null;
+    for (const topic of item.topics) {
+      const priority = inputs.priorities.get(topic.id);
+      if (priority && (!best || priority.rank < best.priority.rank)) best = { topic, priority };
+    }
+    const topicWeight = best ? rankWeight(best.priority.rank, inputs.rankedTopicCount) : 0;
     const rating = inputs.ratings.get(ratingKey(item.type, item.id));
-    let signal: ItemSignal;
+    let signal: ItemSignal | null = null;
 
     if (rating) {
-      const weight = rating.importanceScore !== null ? rating.importanceScore / 2 : maxTopicWeight(item.topicIds, inputs.topicPriorities) || 0.5;
-      const normalizedSignal = rating.agreementScore > 0 ? 1 : rating.agreementScore < 0 ? -1 : 0;
-      signal = {
-        signal: normalizedSignal,
-        weight,
-        source: 'user_rated',
-        reason: 'You rated this stance directly.',
-      };
+      const weight = rating.importanceScore !== null ? rating.importanceScore / 2 : topicWeight || 0.5;
+      const value = rating.agreementScore > 0 ? 1 : rating.agreementScore < 0 ? -1 : 0;
+      signal = { signal: value, weight, source: 'user_rated', reason: 'You rated this stance directly.' };
     } else {
-      const weight = maxTopicWeight(item.topicIds, inputs.topicPriorities);
-      const matchedKeyword = weight > 0 ? matchesFreetextKeyword(item, inputs.freetextKeywords) : null;
-      signal = {
-        signal: matchedKeyword ? 1 : 0,
-        weight,
-        source: matchedKeyword ? 'inferred_from_freetext' : 'no_signal',
-        reason: matchedKeyword ? `Matches your stated interest: "${matchedKeyword}"` : null,
-      };
+      // Stance match: the highest-ranked topic where the bullet takes a side and the user has picked one.
+      let stanceMatch: { topic: ScoringTopic; priority: UserPriority } | null = null;
+      for (const topic of item.topics) {
+        const priority = inputs.priorities.get(topic.id);
+        if (!priority || topic.side === null || priority.stance === 'none') continue;
+        if (!stanceMatch || priority.rank < stanceMatch.priority.rank) stanceMatch = { topic, priority };
+      }
+      if (stanceMatch && stanceMatch.topic.side !== null) {
+        const { topic, priority } = stanceMatch;
+        const agrees = priority.stance === topic.side;
+        signal = {
+          signal: agrees ? 1 : -1,
+          weight: rankWeight(priority.rank, inputs.rankedTopicCount),
+          source: 'stance_match',
+          reason: `${agrees ? 'Matches' : 'Conflicts with'} your stance on ${priority.label}: ${sideLabel(priority, priority.stance as Side)}`,
+        };
+      } else if (best) {
+        const keyword = matchesFreetextKeyword(item, inputs.freetextKeywords);
+        if (keyword) {
+          signal = {
+            signal: 1,
+            weight: topicWeight,
+            source: 'inferred_from_freetext',
+            reason: `Matches your stated interest: "${keyword}"`,
+          };
+        }
+      }
     }
 
-    perItemSignals.set(item.id, signal);
-
-    if (signal.weight > 0) {
-      sum += signal.signal * signal.weight;
-      count += 1;
+    if (signal && signal.signal !== 0 && signal.weight > 0) {
+      perItemSignals.set(item.id, signal);
+      weightedSum += signal.signal * signal.weight;
+      totalWeight += signal.weight;
     }
   }
 
-  const score_0_100 = count === 0 ? null : (((sum / count) + 2) / 4) * 100;
+  const score_0_100 = totalWeight === 0 ? null : ((weightedSum / totalWeight + 1) / 2) * 100;
   return { score_0_100, perItemSignals };
 }
 

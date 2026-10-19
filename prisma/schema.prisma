@@ -32,6 +32,7 @@ enum CandidateStatus {
 
 enum SourceType {
   ballotpedia
+  ontheissues
   legiscan
   congress_gov
   leginfo_ca_gov
@@ -46,6 +47,45 @@ enum VoteType {
   abstain
   sponsored
   co_sponsored @map("co-sponsored")
+}
+
+enum AiJobStatus {
+  pending
+  done
+  failed
+}
+
+enum SourceStatus {
+  active
+  disabled
+  archived
+}
+
+enum TopicStance {
+  a
+  b
+  none
+}
+
+enum TopicSide {
+  a
+  b
+}
+
+enum ItemDirection {
+  increase
+  decrease
+}
+
+enum FundraisingSourceType {
+  campaign_total
+  independent_expenditure
+  pac
+  individual
+  corporation
+  party
+  self
+  other
 }
 
 enum VotingSourceSystem {
@@ -74,8 +114,11 @@ model Topic {
   slug        String  @unique
   label       String
   description String?
+  sideALabel  String  @map("side_a_label")
+  sideBLabel  String  @map("side_b_label")
 
   candidateTopics        CandidateTopic[]
+  candidateStats         CandidateStat[]
   platformItemTopics     PlatformItemTopic[]
   policyItemTopics       PolicyItemTopic[]
   votingHistoryItemTopics VotingHistoryItemTopic[]
@@ -120,12 +163,95 @@ model Candidate {
 
   position           Position              @relation("PositionCandidates", fields: [positionId], references: [id], onDelete: Cascade)
   candidateTopics     CandidateTopic[]
+  fundraisingSources  FundraisingSource[]
+  stats               CandidateStat[]
+  aiJobs              AiJob[]
   platformItems       PlatformItem[]
   policyItems         PolicyItem[]
   votingHistoryItems  VotingHistoryItem[]
   alignmentCache      CandidateAlignmentCache[]
 
+  @@unique([positionId, fullName])
   @@map("candidates")
+}
+
+model AiJob {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  candidateId String      @map("candidate_id") @db.Uuid
+  kind        String
+  status      AiJobStatus @default(pending)
+  output      Json?
+  error       String?
+  requestedAt DateTime    @default(now()) @map("requested_at")
+  completedAt DateTime?   @map("completed_at")
+
+  candidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@map("ai_jobs")
+}
+
+model Source {
+  id        String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  url       String       @unique
+  status    SourceStatus @default(active)
+  createdAt DateTime     @default(now()) @map("created_at")
+  updatedAt DateTime     @default(now()) @updatedAt @map("updated_at")
+
+  @@map("sources")
+}
+
+model CandidateStat {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  candidateId String   @map("candidate_id") @db.Uuid
+  topicId     String?  @map("topic_id") @db.Uuid
+  summary     String
+  sortOrder   Int      @default(0) @map("sort_order")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  candidate Candidate               @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  topic     Topic?                  @relation(fields: [topicId], references: [id], onDelete: SetNull)
+  citations CandidateStatCitation[]
+
+  @@map("candidate_stats")
+}
+
+model CandidateStatCitation {
+  candidateStatId String @map("candidate_stat_id") @db.Uuid
+  citationId      String @map("citation_id") @db.Uuid
+
+  candidateStat CandidateStat @relation(fields: [candidateStatId], references: [id], onDelete: Cascade)
+  citation      Citation      @relation(fields: [citationId], references: [id], onDelete: Cascade)
+
+  @@id([candidateStatId, citationId])
+  @@map("candidate_stat_citations")
+}
+
+model FundraisingSource {
+  id          String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  candidateId String               @map("candidate_id") @db.Uuid
+  sourceName  String               @map("source_name")
+  sourceType  FundraisingSourceType @map("source_type")
+  amount      Decimal              @db.Decimal(14, 2)
+  cycle       String?
+  createdAt   DateTime             @default(now()) @map("created_at")
+  updatedAt   DateTime             @default(now()) @updatedAt @map("updated_at")
+
+  candidate Candidate                  @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  citations FundraisingSourceCitation[]
+
+  @@map("fundraising_sources")
+}
+
+model FundraisingSourceCitation {
+  fundraisingSourceId String @map("fundraising_source_id") @db.Uuid
+  citationId          String @map("citation_id") @db.Uuid
+
+  fundraisingSource FundraisingSource @relation(fields: [fundraisingSourceId], references: [id], onDelete: Cascade)
+  citation          Citation          @relation(fields: [citationId], references: [id], onDelete: Cascade)
+
+  @@id([fundraisingSourceId, citationId])
+  @@map("fundraising_source_citations")
 }
 
 model CandidateTopic {
@@ -150,6 +276,8 @@ model Citation {
   rawExcerpt    String?    @map("raw_excerpt")
 
   platformItemCitations      PlatformItemCitation[]
+  fundraisingSourceCitations FundraisingSourceCitation[]
+  statCitations              CandidateStatCitation[]
   policyItemCitations        PolicyItemCitation[]
   votingHistoryItemCitations VotingHistoryItemCitation[]
 
@@ -162,6 +290,7 @@ model PlatformItem {
   candidateId   String   @map("candidate_id") @db.Uuid
   text          String
   stanceSummary String?  @map("stance_summary")
+  direction     ItemDirection?
   sortOrder     Int      @default(0) @map("sort_order")
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @default(now()) @updatedAt @map("updated_at")
@@ -177,6 +306,7 @@ model PlatformItem {
 model PlatformItemTopic {
   platformItemId String @map("platform_item_id") @db.Uuid
   topicId         String @map("topic_id") @db.Uuid
+  side        TopicSide?
 
   platformItem PlatformItem @relation(fields: [platformItemId], references: [id], onDelete: Cascade)
   topic        Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -202,6 +332,7 @@ model PolicyItem {
   actionText    String    @map("action_text")
   effectText    String?   @map("effect_text")
   stanceSummary String?   @map("stance_summary")
+  direction     ItemDirection?
   date          DateTime? @db.Date
   sortOrder     Int       @default(0) @map("sort_order")
   createdAt     DateTime  @default(now()) @map("created_at")
@@ -218,6 +349,7 @@ model PolicyItem {
 model PolicyItemTopic {
   policyItemId String @map("policy_item_id") @db.Uuid
   topicId      String @map("topic_id") @db.Uuid
+  side        TopicSide?
 
   policyItem PolicyItem @relation(fields: [policyItemId], references: [id], onDelete: Cascade)
   topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -246,6 +378,7 @@ model VotingHistoryItem {
   summary          String?
   date             DateTime?           @db.Date
   stanceSummary    String?             @map("stance_summary")
+  direction        ItemDirection?
   sourceSystem     VotingSourceSystem? @map("source_system")
   sourceExternalId String?             @map("source_external_id")
   createdAt        DateTime            @default(now()) @map("created_at")
@@ -263,6 +396,7 @@ model VotingHistoryItem {
 model VotingHistoryItemTopic {
   votingHistoryItemId String @map("voting_history_item_id") @db.Uuid
   topicId              String @map("topic_id") @db.Uuid
+  side        TopicSide?
 
   votingHistoryItem VotingHistoryItem @relation(fields: [votingHistoryItemId], references: [id], onDelete: Cascade)
   topic             Topic             @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -285,8 +419,9 @@ model VotingHistoryItemCitation {
 model UserTopicPriority {
   id             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId         String  @map("user_id") @db.Uuid
-  topicId        String  @map("topic_id") @db.Uuid
-  priorityWeight Decimal @default(0.5) @map("priority_weight") @db.Decimal(3, 2)
+  topicId        String      @map("topic_id") @db.Uuid
+  rank           Int         @map("rank")
+  stance         TopicStance @default(none)
 
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)

@@ -46,3 +46,6 @@ next-env.d.ts
 
 # ingestion pipeline cache
 /ingestion/.cache/
+
+# supabase CLI local state
+/supabase/.temp/

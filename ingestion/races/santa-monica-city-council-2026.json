@@ -1,0 +1,1014 @@
+{
+  "position": {
+    "slug": "santa-monica-city-council-2026",
+    "title": "Santa Monica City Council",
+    "level": "local",
+    "jurisdiction": "Santa Monica, CA",
+    "electionCycle": "2026",
+    "electionDate": "2026-11-03"
+  },
+  "candidates": [
+    {
+      "fullName": "Caroline Torosis",
+      "party": "Other",
+      "isIncumbent": true,
+      "currentPositionTitle": "Mayor of Santa Monica",
+      "historyText": "Current Mayor of Santa Monica. Occupation listed on her city candidate statement: workers' rights attorney.",
+      "platform": [
+        {
+          "text": "Would cut red tape and waive fees so local businesses can open and grow.",
+          "stanceSummary": "supports cutting red tape and fees for local businesses",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/caroline-torosis",
+              "sourceType": "other",
+              "title": "Caroline Torosis - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "cutting red tape and waiving fees so local businesses can open and grow"
+            }
+          ]
+        },
+        {
+          "text": "Credits reduced violent crime and burglary to their lowest level in over a decade and says she will keep working to make Santa Monica safe.",
+          "stanceSummary": "supports public safety and crime reduction",
+          "topics": [
+            {
+              "slug": "safety",
+              "side": null
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/caroline-torosis",
+              "sourceType": "other",
+              "title": "Caroline Torosis - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "reduced violent crime and burglary to their lowest level in over a decade"
+            }
+          ]
+        },
+        {
+          "text": "Would expand legal help for renters facing eviction.",
+          "stanceSummary": "supports expanded legal aid for renters facing eviction",
+          "topics": [
+            {
+              "slug": "housing",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/caroline-torosis",
+              "sourceType": "other",
+              "title": "Caroline Torosis - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "expanded legal help for renters facing eviction"
+            }
+          ]
+        },
+        {
+          "text": "Would bring events downtown so residents and visitors have more reasons to shop and dine.",
+          "stanceSummary": "supports downtown events and local commerce",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/caroline-torosis",
+              "sourceType": "other",
+              "title": "Caroline Torosis - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "bringing events downtown, so everyone has more reasons to visit, shop, and dine"
+            }
+          ]
+        }
+      ],
+      "policies": [
+        {
+          "actionText": "Delivered financial assistance to low-income seniors, as reported in her candidate statement.",
+          "effectText": "Per the candidate's own statement, kept more than 250 low-income seniors in their homes (self-reported, not independently verified).",
+          "topics": [
+            "housing",
+            "homelessness"
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/caroline-torosis",
+              "sourceType": "other",
+              "title": "Caroline Torosis - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "delivered financial assistance that kept more than 250 low-income seniors in their homes"
+            }
+          ]
+        }
+      ],
+      "fundraising": [],
+      "stats": [
+        {
+          "summary": "Approved nearly 1,800 new homes in 2026, including more than 450 permanently affordable homes (Mayor Torosis, 2026 State of the City address).",
+          "topic": "housing",
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/blog/2026-state-of-the-city-address-mayor-caroline-torosis",
+              "sourceType": "other",
+              "publisher": "City of Santa Monica",
+              "title": "2026 State of the City Address",
+              "rawExcerpt": "We approved nearly eighteen hundred new homes, including more than four hundred fifty permanently affordable homes."
+            }
+          ]
+        },
+        {
+          "summary": "Serious crime fell 12.5 percent, and the Police Department reached full sworn staffing for the first time in more than 20 years (Mayor Torosis, 2026 State of the City address).",
+          "topic": "safety",
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/blog/2026-state-of-the-city-address-mayor-caroline-torosis",
+              "sourceType": "other",
+              "publisher": "City of Santa Monica",
+              "title": "2026 State of the City Address",
+              "rawExcerpt": "Our Police Department reached full sworn staffing for the first time in more than twenty years, serious crime is down twelve and a half percent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fullName": "Lana Negrete",
+      "party": "Other",
+      "isIncumbent": true,
+      "currentPositionTitle": "City Councilmember",
+      "historyText": "Current Santa Monica City Councilmember. Occupation listed on her city candidate statement: small business owner and nonprofit founder.",
+      "platform": [
+        {
+          "text": "Would take an accountable approach to homelessness that prioritizes treatment, mental health care, and recovery.",
+          "stanceSummary": "supports treatment-focused approach to homelessness",
+          "topics": [
+            {
+              "slug": "homelessness",
+              "side": "b"
+            },
+            {
+              "slug": "healthcare",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/lana-negrete",
+              "sourceType": "other",
+              "title": "Lana Negrete - Candidate Profile",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "accountable approach to homelessness that prioritizes treatment, mental health care, recovery"
+            }
+          ]
+        },
+        {
+          "text": "Champions common sense public safety policies and supports police officers and firefighters.",
+          "stanceSummary": "supports public safety policy and first responders",
+          "topics": [
+            {
+              "slug": "safety",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/lana-negrete",
+              "sourceType": "other",
+              "title": "Lana Negrete - Candidate Profile",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "championed common sense public safety policies"
+            }
+          ]
+        },
+        {
+          "text": "Would make government more transparent, accessible, and accountable.",
+          "stanceSummary": "supports government transparency and accountability",
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/lana-negrete",
+              "sourceType": "other",
+              "title": "Lana Negrete - Candidate Profile",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "government should be transparent, accessible, and accountable"
+            }
+          ]
+        },
+        {
+          "text": "Supports Santa Monica's local businesses and economic recovery as a priority.",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://lananegrete.com/",
+              "sourceType": "campaign_site",
+              "title": "Lana Negrete campaign site",
+              "publisher": "Lana Negrete",
+              "rawExcerpt": "Supporting Santa Monica's local businesses and economic recovery a priority"
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "fundraising": [],
+      "stats": [
+        {
+          "summary": "Cast the sole no vote on the 4-1 council vote expanding the off-site affordable housing pilot.",
+          "topic": "housing",
+          "citations": [
+            {
+              "url": "https://www.smdp.com/santa-monica-council-approves-expanded-affordable-housing-pilot/",
+              "sourceType": "news",
+              "publisher": "Santa Monica Daily Press",
+              "title": "Santa Monica Council Approves Expanded Affordable Housing Pilot",
+              "rawExcerpt": "Lana Negrete: Cast the sole no vote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fullName": "Daniel Ivanov",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Rent Control Board Chair",
+      "historyText": "Chair of the Santa Monica Rent Control Board. Occupation listed on his city candidate statement: attorney.",
+      "platform": [
+        {
+          "text": "Would address the rising costs of living.",
+          "stanceSummary": "supports addressing cost of living",
+          "topics": [
+            {
+              "slug": "affordability",
+              "side": null
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/daniel-ivanov",
+              "sourceType": "other",
+              "title": "Daniel Ivanov - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "Address rising costs of living"
+            }
+          ]
+        },
+        {
+          "text": "Would support struggling small businesses in recovery.",
+          "stanceSummary": "supports small business recovery",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/daniel-ivanov",
+              "sourceType": "other",
+              "title": "Daniel Ivanov - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "Support struggling small businesses in recovery"
+            }
+          ]
+        },
+        {
+          "text": "Would ensure clean, safe neighborhoods.",
+          "stanceSummary": "supports clean and safe neighborhoods",
+          "topics": [
+            "safety",
+            "environment"
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/daniel-ivanov",
+              "sourceType": "other",
+              "title": "Daniel Ivanov - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "Ensure \"clean, safe neighborhoods\""
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "fundraising": [],
+      "stats": []
+    },
+    {
+      "fullName": "Wade Kelley",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Singer/Songwriter",
+      "platform": [
+        {
+          "text": "Stands up for human rights.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://santamonicanext.org/2026/06/why-are-these-11-people-running-for-city-council/",
+              "sourceType": "news",
+              "title": "Why Are These 11 People Running for City Council?",
+              "publisher": "Santa Monica Next",
+              "rawExcerpt": "To stand up for HUMAN RIGHTS!"
+            }
+          ]
+        },
+        {
+          "text": "Calls housing a human right and wants to build more affordable housing now.",
+          "stanceSummary": "favors building more affordable housing",
+          "topics": [
+            {
+              "slug": "housing",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.smdp.com/news/candidate-questions-wade-kelley/",
+              "sourceType": "news",
+              "title": "Candidate Questions: Wade Kelley",
+              "publisher": "Santa Monica Daily Press",
+              "rawExcerpt": "Housing is a Human Right"
+            }
+          ]
+        },
+        {
+          "text": "Opposes criminalizing unhoused people without providing alternatives.",
+          "stanceSummary": "favors housing-first response to homelessness",
+          "topics": [
+            {
+              "slug": "homelessness",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.smdp.com/news/candidate-questions-wade-kelley/",
+              "sourceType": "news",
+              "title": "Candidate Questions: Wade Kelley",
+              "publisher": "Santa Monica Daily Press",
+              "rawExcerpt": "opposes criminalizing unhoused people without providing alternatives"
+            }
+          ]
+        },
+        {
+          "text": "Supports raising taxes on the rich.",
+          "stanceSummary": "favors higher taxes on wealthy residents",
+          "topics": [
+            {
+              "slug": "taxes",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.smdp.com/news/candidate-questions-wade-kelley/",
+              "sourceType": "news",
+              "title": "Candidate Questions: Wade Kelley",
+              "publisher": "Santa Monica Daily Press",
+              "rawExcerpt": "Raise Taxes on the Rich"
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Singer/songwriter per ballot designation. No candidate statement was submitted to the city."
+    },
+    {
+      "fullName": "Ashley Oelsen",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Scientist/Commissioner",
+      "platform": [
+        {
+          "text": "Says the Council should put the community ahead of politics, follow the science, and make decisions based on facts, transparency, and long-term public benefit.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://santamonicanext.org/2026/06/why-are-these-11-people-running-for-city-council/",
+              "sourceType": "news",
+              "title": "Why Are These 11 People Running for City Council?",
+              "publisher": "Santa Monica Next",
+              "rawExcerpt": "I am running because Santa Monica needs leaders who are willing to put the community ahead of politics, follow the science, and make decisions based on facts, transparency, and long-term public benefit."
+            }
+          ]
+        },
+        {
+          "text": "Lists Sustainable Safety as a priority: accountability and addressing root causes rather than temporary fixes.",
+          "topics": [
+            "safety"
+          ],
+          "citations": [
+            {
+              "url": "https://www.vote4ash.com",
+              "sourceType": "campaign_site",
+              "title": "Ashley Oelsen campaign site",
+              "publisher": "Ashley Oelsen",
+              "rawExcerpt": "Accountability, Address Root Causes rather than Temporary Fixes"
+            }
+          ]
+        },
+        {
+          "text": "Lists Sustainable Finances as a priority: fiscal health and a thriving economy built on smart decisions.",
+          "topics": [
+            "economic_growth"
+          ],
+          "citations": [
+            {
+              "url": "https://www.vote4ash.com",
+              "sourceType": "campaign_site",
+              "title": "Ashley Oelsen campaign site",
+              "publisher": "Ashley Oelsen",
+              "rawExcerpt": "Fiscal Health & City Vibrancy: A Thriving Economy Built on Smart Decisions"
+            }
+          ]
+        },
+        {
+          "text": "Lists Sustainable Environment as a priority: building a more resilient Santa Monica.",
+          "topics": [
+            "environment"
+          ],
+          "citations": [
+            {
+              "url": "https://www.vote4ash.com",
+              "sourceType": "campaign_site",
+              "title": "Ashley Oelsen campaign site",
+              "publisher": "Ashley Oelsen",
+              "rawExcerpt": "Building a More Resilient Santa Monica Ensures Future Generations Can Thrive"
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Conservation biologist, environmental leader, and Santa Monica commissioner, per her campaign site."
+    },
+    {
+      "fullName": "Ericka Lesley",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Rent Control Boardmember",
+      "platform": [
+        {
+          "text": "Says her platform is centered on representation for the underserved, inclusionary practices, equity advocacy, and justice.",
+          "topics": [
+            {
+              "slug": "economic_equality",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://erickalesleyforcitycouncil.com/about-us/best-city-council-for-santa-monica-6496876",
+              "sourceType": "campaign_site",
+              "title": "Ericka Lesley campaign site",
+              "publisher": "Ericka Lesley",
+              "rawExcerpt": "My platform is centered around representation for the underserved, inclusionary practices, equity advocacy, and justice."
+            }
+          ]
+        },
+        {
+          "text": "Says every voice deserves to be heard and every community deserves equal access to resources.",
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://erickalesleyforcitycouncil.com/about-us/best-city-council-for-santa-monica-6496876",
+              "sourceType": "campaign_site",
+              "title": "Ericka Lesley campaign site",
+              "publisher": "Ericka Lesley",
+              "rawExcerpt": "I believe that every voice deserves to be heard and every community deserves equal access to resources."
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Rent Control Board member with extensive community leadership and advocacy experience, per her campaign site."
+    },
+    {
+      "fullName": "Lindsay Davis",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Yoga Instructor",
+      "platform": [
+        {
+          "text": "Vision built on three pillars: Awakening, Biodiversity, and Fellowships.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/lindsay-davis",
+              "sourceType": "campaign_site",
+              "title": "Lindsay Davis, Santa Monica City Council Candidate Statement",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "My vision for Santa Monica is built on three pillars: Awakening, Biodiversity, and Fellowships."
+            }
+          ]
+        },
+        {
+          "text": "Says restoring the environment and strengthening neighborhood bonds are central goals.",
+          "stanceSummary": null,
+          "topics": [
+            {
+              "slug": "environment",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-03/candidates/lindsay-davis",
+              "sourceType": "campaign_site",
+              "title": "Lindsay Davis, Santa Monica City Council Candidate Statement",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "Together, we can restore our environment, strengthen neighborhood bonds, reduce isolation, and create a Santa Monica where every resident has the opportunity to belong, contribute, and flourish."
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Yoga instructor and lifelong Santa Monica community member, per the city candidate statement."
+    },
+    {
+      "fullName": "Phil Brock",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Former Mayor",
+      "historyText": "Born and raised in Santa Monica; former mayor seeking to regain the council seat he lost in 2024, running as an independent.",
+      "platform": [
+        {
+          "text": "Says he is running because of his lifelong connection to Santa Monica.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://santamonicanext.org/2026/06/why-are-these-11-people-running-for-city-council/",
+              "sourceType": "news",
+              "title": "Why Are These 11 People Running for City Council?",
+              "publisher": "Santa Monica Next",
+              "rawExcerpt": "Born and raised in Santa Monica, I grew up on these beaches, body-surfed these waves, and played on these fields"
+            }
+          ]
+        },
+        {
+          "text": "Calls for a substantial increase in public safety personnel and equipment.",
+          "topics": [
+            {
+              "slug": "safety",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/",
+              "sourceType": "campaign_site",
+              "title": "Phil Brock campaign site",
+              "publisher": "Phil Brock",
+              "rawExcerpt": "A substantial increase in public safety personnel and equipment is still required."
+            }
+          ]
+        },
+        {
+          "text": "Says the city must reduce crime and find real homelessness solutions.",
+          "topics": [
+            "safety",
+            "homelessness"
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/",
+              "sourceType": "campaign_site",
+              "title": "Phil Brock campaign site",
+              "publisher": "Phil Brock",
+              "rawExcerpt": "We must reduce crime and find real homelessness solutions."
+            }
+          ]
+        },
+        {
+          "text": "Supports slow growth in Santa Monica.",
+          "topics": [
+            {
+              "slug": "housing",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/",
+              "sourceType": "campaign_site",
+              "title": "Phil Brock campaign site",
+              "publisher": "Phil Brock",
+              "rawExcerpt": "I Support Slow Growth."
+            }
+          ]
+        },
+        {
+          "text": "Wants to scale back and bring balance to Santa Monica's business community.",
+          "stanceSummary": "favors scaling back business growth",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/issues",
+              "sourceType": "campaign_site",
+              "title": "Issues",
+              "publisher": "Phil Brock for City Council",
+              "rawExcerpt": "My objective is to bring balance and scale back to Santa Monica's business community"
+            }
+          ]
+        },
+        {
+          "text": "Calls rent control sacrosanct in Santa Monica.",
+          "stanceSummary": "strongly defends rent control",
+          "topics": [
+            {
+              "slug": "affordability",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/issues",
+              "sourceType": "campaign_site",
+              "title": "Issues",
+              "publisher": "Phil Brock for City Council",
+              "rawExcerpt": "Rent Control is sacrosanct in our city."
+            }
+          ]
+        },
+        {
+          "text": "Wants to protect and enhance Santa Monica's green spaces.",
+          "stanceSummary": "favors protecting and expanding green space",
+          "topics": [
+            {
+              "slug": "environment",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.votebrock.org/issues",
+              "sourceType": "campaign_site",
+              "title": "Issues",
+              "publisher": "Phil Brock for City Council",
+              "rawExcerpt": "Our green spaces are the lungs of Santa Monica and not only protect them but enhance them."
+            }
+          ]
+        }
+      ],
+      "policies": []
+    },
+    {
+      "fullName": "Eli Gill",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Business Operations Manager",
+      "platform": [
+        {
+          "text": "Says the city needs better management, clearer priorities, and a focus on execution rather than ideological posturing.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://santamonicanext.org/2026/06/why-are-these-11-people-running-for-city-council/",
+              "sourceType": "news",
+              "title": "Why Are These 11 People Running for City Council?",
+              "publisher": "Santa Monica Next",
+              "rawExcerpt": "I am running because I believe we can do better. Not through grand gestures or ideological posturing, but through better management, clearer priorities, and a relentless focus on execution."
+            }
+          ]
+        },
+        {
+          "text": "Supports affordable housing and strong tenant protections.",
+          "stanceSummary": "supports affordable housing and tenant protections",
+          "topics": [
+            {
+              "slug": "housing",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/eli-gill",
+              "sourceType": "other",
+              "title": "Eli Gill - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "affordable housing, strong tenant protections"
+            }
+          ]
+        },
+        {
+          "text": "Wants great public schools.",
+          "stanceSummary": "supports great public schools",
+          "topics": [
+            {
+              "slug": "education",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/eli-gill",
+              "sourceType": "other",
+              "title": "Eli Gill - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "great public schools"
+            }
+          ]
+        },
+        {
+          "text": "Prioritizes safe streets.",
+          "stanceSummary": "supports safe streets",
+          "topics": [
+            "safety"
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/eli-gill",
+              "sourceType": "other",
+              "title": "Eli Gill - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "safe streets"
+            }
+          ]
+        },
+        {
+          "text": "Supports thriving local businesses.",
+          "stanceSummary": "supports thriving local businesses",
+          "topics": [
+            {
+              "slug": "economic_growth",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/eli-gill",
+              "sourceType": "other",
+              "title": "Eli Gill - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "thriving local businesses"
+            }
+          ]
+        },
+        {
+          "text": "Wants a city government that listens and delivers.",
+          "stanceSummary": "supports responsive government",
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://www.santamonica.gov/elections/2026-11-02/candidates/eli-gill",
+              "sourceType": "other",
+              "title": "Eli Gill - 2026 Santa Monica City Council Candidate",
+              "publisher": "City of Santa Monica",
+              "rawExcerpt": "a city government that listens and delivers"
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Business Operations Manager. 20+ year Santa Monica resident, renter in a rent-controlled apartment, parent of two children in public schools. Worked on neighborhood street safety, including four-way stops after a fatal collision."
+    },
+    {
+      "fullName": "Brett Morrow",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Health Official/Commissioner",
+      "platform": [
+        {
+          "text": "Says it is still too expensive for families, workers, students, and seniors to live in Santa Monica.",
+          "stanceSummary": null,
+          "topics": [
+            "affordability"
+          ],
+          "citations": [
+            {
+              "url": "https://santamonicanext.org/2026/06/why-are-these-11-people-running-for-city-council/",
+              "sourceType": "news",
+              "title": "Why Are These 11 People Running for City Council?",
+              "publisher": "Santa Monica Next",
+              "rawExcerpt": "It's still too expensive to live here for families, workers, students, and seniors."
+            }
+          ]
+        },
+        {
+          "text": "Vision: families can stay, workers can afford to live, small businesses can thrive, and government shows up with honesty and results.",
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://www.brettmorrowforcitycouncil.com/",
+              "sourceType": "campaign_site",
+              "title": "Brett Morrow campaign site",
+              "publisher": "Brett Morrow",
+              "rawExcerpt": "the city can once again be a place where families can stay, workers can afford to live, small businesses can thrive, and government shows up with honesty and results"
+            }
+          ]
+        },
+        {
+          "text": "Calls for building more housing — affordable, workforce, and market-rate — and faster approvals to bring down costs.",
+          "stanceSummary": "favors building more housing and faster approvals",
+          "topics": [
+            {
+              "slug": "housing",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.brettmorrowforcitycouncil.com/priorities",
+              "sourceType": "campaign_site",
+              "title": "Brett Morrow's Priorities",
+              "publisher": "Brett Morrow for City Council",
+              "rawExcerpt": "We need more housing. That includes affordable housing, workforce housing, and market-rate housing that helps bring overall costs down."
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Chief Communications Officer for the Los Angeles County Department of Public Health. More than two decades in communications and community advocacy. Lives in Santa Monica with a spouse and young daughter."
+    },
+    {
+      "fullName": "Doug Trussler",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Businessman/Coach/Parent",
+      "platform": [
+        {
+          "text": "Lists Public Safety as a priority: the foundation everything else rests on.",
+          "topics": [
+            "safety"
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/platform/",
+              "sourceType": "campaign_site",
+              "title": "Doug Trussler campaign site",
+              "publisher": "Doug Trussler",
+              "rawExcerpt": "The Foundation Everything Else Rests On"
+            }
+          ]
+        },
+        {
+          "text": "Lists Homelessness, Mental Health & Addiction as a priority: stop managing the crisis and start ending it.",
+          "topics": [
+            "homelessness"
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/platform/",
+              "sourceType": "campaign_site",
+              "title": "Doug Trussler campaign site",
+              "publisher": "Doug Trussler",
+              "rawExcerpt": "Stop Managing the Crisis, Start Ending It"
+            }
+          ]
+        },
+        {
+          "text": "Lists Economic Health as a priority: the cost of disorder.",
+          "topics": [
+            "economic_growth"
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/platform/",
+              "sourceType": "campaign_site",
+              "title": "Doug Trussler campaign site",
+              "publisher": "Doug Trussler",
+              "rawExcerpt": "The Cost of Disorder"
+            }
+          ]
+        },
+        {
+          "text": "Lists Affordability as a priority: making Santa Monica affordable.",
+          "topics": [
+            {
+              "slug": "affordability",
+              "side": "b"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/platform/",
+              "sourceType": "campaign_site",
+              "title": "Doug Trussler campaign site",
+              "publisher": "Doug Trussler",
+              "rawExcerpt": "Making Santa Monica Affordable"
+            }
+          ]
+        },
+        {
+          "text": "Lists Public Spaces as a priority: parks, open spaces, and youth sports fields.",
+          "topics": [
+            "environment"
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/platform/",
+              "sourceType": "campaign_site",
+              "title": "Doug Trussler campaign site",
+              "publisher": "Doug Trussler",
+              "rawExcerpt": "Parks, Open Spaces and Youth Sports Fields"
+            }
+          ]
+        },
+        {
+          "text": "Would address affordability by reducing taxes on residents and fixing the city budget, not through regulatory mandates.",
+          "stanceSummary": "favors tax cuts and fiscal management over regulation",
+          "topics": [
+            {
+              "slug": "taxes",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://doug4santamonica.com/making-santa-monica-affordable/",
+              "sourceType": "campaign_site",
+              "title": "Making Santa Monica Affordable",
+              "publisher": "Doug Trussler for Santa Monica",
+              "rawExcerpt": "we can address affordability by reducing taxes on residents and by fixing the City budget"
+            }
+          ]
+        }
+      ],
+      "policies": [],
+      "historyText": "Businessman, coach, and parent. Describes a career turning around complex organizations and managing costs. Owns a home and business in Santa Monica and has children in local schools."
+    },
+    {
+      "fullName": "Derrick Townsend",
+      "party": "Other",
+      "isIncumbent": false,
+      "currentPositionTitle": "Healthcare/Rehabilitation Specialist",
+      "historyText": "New Orleans native and licensed Occupational Therapist with over 18 years of experience; has lived in Santa Monica for seven years.",
+      "campaignSiteUrl": "https://www.dt4sm.com",
+      "platform": [
+        {
+          "text": "Calls for a higher standard for Santa Monica.",
+          "stanceSummary": null,
+          "topics": [],
+          "citations": [
+            {
+              "url": "https://www.dt4sm.com",
+              "sourceType": "campaign_site",
+              "title": "Derrick Townsend campaign site",
+              "publisher": "Derrick Townsend for Santa Monica",
+              "rawExcerpt": "A higher standard for Santa Monica"
+            }
+          ]
+        },
+        {
+          "text": "Says the city must break the cycle of ineffective bureaucracy, restore safety, and ensure everyday residents are heard.",
+          "stanceSummary": null,
+          "topics": [
+            {
+              "slug": "safety",
+              "side": "a"
+            }
+          ],
+          "citations": [
+            {
+              "url": "https://www.dt4sm.com",
+              "sourceType": "campaign_site",
+              "title": "Derrick Townsend campaign site",
+              "publisher": "Derrick Townsend for Santa Monica",
+              "rawExcerpt": "he is running for City Council to break the cycle of ineffective bureaucracy, restore safety, and ensure that the voices of everyday residents are heard."
+            }
+          ]
+        },
+        {
+          "text": "Lists keeping Santa Monica beaches beautiful, clean, and family friendly as a priority.",
+          "topics": [
+            "environment"
+          ],
+          "citations": [
+            {
+              "url": "https://www.dt4sm.com",
+              "sourceType": "campaign_site",
+              "title": "Derrick Townsend campaign site",
+              "publisher": "Derrick Townsend",
+              "rawExcerpt": "Keeping Santa Monica Beaches Beautiful, Clean, and Family Friendly"
+            }
+          ]
+        }
+      ],
+      "policies": []
+    }
+  ]
+}

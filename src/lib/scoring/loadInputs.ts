@@ -1,16 +1,22 @@
 import { prisma } from '@/lib/prisma';
-import { ScoringItem, UserAlignmentInputs, UserRatingInput, ScoringItemType } from './alignment';
+import { ScoringItem, ScoringItemType, Stance, UserAlignmentInputs, UserPriority, UserRatingInput } from './alignment';
 
 export async function loadUserAlignmentInputs(userId: string): Promise<UserAlignmentInputs> {
   const [priorityRows, ratingRows, freetextRow] = await Promise.all([
-    prisma.userTopicPriority.findMany({ where: { userId } }),
+    prisma.userTopicPriority.findMany({ where: { userId }, include: { topic: true } }),
     prisma.userStanceRating.findMany({ where: { userId } }),
     prisma.userFreetextInput.findFirst({ where: { userId }, orderBy: { updatedAt: 'desc' } }),
   ]);
 
-  const topicPriorities = new Map<string, number>();
+  const priorities = new Map<string, UserPriority>();
   for (const row of priorityRows) {
-    topicPriorities.set(row.topicId, Number(row.priorityWeight));
+    priorities.set(row.topicId, {
+      rank: row.rank,
+      stance: row.stance as Stance,
+      label: row.topic.label,
+      sideALabel: row.topic.sideALabel,
+      sideBLabel: row.topic.sideBLabel,
+    });
   }
 
   const ratings = new Map<string, UserRatingInput>();
@@ -35,45 +41,53 @@ export async function loadUserAlignmentInputs(userId: string): Promise<UserAlign
     });
   }
 
-  const freetextKeywords = freetextRow?.extractedKeywords ?? [];
-
-  return { topicPriorities, ratings, freetextKeywords };
+  return {
+    priorities,
+    rankedTopicCount: priorityRows.length,
+    ratings,
+    freetextKeywords: freetextRow?.extractedKeywords ?? [],
+  };
 }
 
 export async function loadCandidateItemsForScoring(candidateId: string): Promise<ScoringItem[]> {
+  const include = { topics: { include: { topic: true } } } as const;
   const [platform, policy, voting] = await Promise.all([
-    prisma.platformItem.findMany({ where: { candidateId }, include: { topics: true } }),
-    prisma.policyItem.findMany({ where: { candidateId }, include: { topics: true } }),
-    prisma.votingHistoryItem.findMany({ where: { candidateId }, include: { topics: true } }),
+    prisma.platformItem.findMany({ where: { candidateId }, include }),
+    prisma.policyItem.findMany({ where: { candidateId }, include }),
+    prisma.votingHistoryItem.findMany({ where: { candidateId }, include }),
   ]);
 
-  const items: ScoringItem[] = [];
-  for (const row of platform) {
-    items.push({
+  const toTopics = (rows: Array<{ side: 'a' | 'b' | null; topic: { id: string; slug: string; label: string; sideALabel: string; sideBLabel: string } }>) =>
+    rows.map((t) => ({
+      id: t.topic.id,
+      slug: t.topic.slug,
+      label: t.topic.label,
+      sideALabel: t.topic.sideALabel,
+      sideBLabel: t.topic.sideBLabel,
+      side: t.side,
+    }));
+
+  return [
+    ...platform.map((row) => ({
       id: row.id,
-      type: 'platform_item',
+      type: 'platform_item' as const,
       text: row.text,
       stanceSummary: row.stanceSummary,
-      topicIds: row.topics.map((t) => t.topicId),
-    });
-  }
-  for (const row of policy) {
-    items.push({
+      topics: toTopics(row.topics),
+    })),
+    ...policy.map((row) => ({
       id: row.id,
-      type: 'policy_item',
+      type: 'policy_item' as const,
       text: row.actionText,
       stanceSummary: row.stanceSummary,
-      topicIds: row.topics.map((t) => t.topicId),
-    });
-  }
-  for (const row of voting) {
-    items.push({
+      topics: toTopics(row.topics),
+    })),
+    ...voting.map((row) => ({
       id: row.id,
-      type: 'voting_history_item',
+      type: 'voting_history_item' as const,
       text: `${row.billTitle} ${row.summary ?? ''}`,
       stanceSummary: row.stanceSummary,
-      topicIds: row.topics.map((t) => t.topicId),
-    });
-  }
-  return items;
+      topics: toTopics(row.topics),
+    })),
+  ];
 }
