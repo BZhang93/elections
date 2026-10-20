@@ -1,4 +1,4 @@
-# Elections
+# Smart Vote
 
 Election research is scattered across campaign sites, Ballotpedia, news articles, voting
 records, and candidate statements — and most of it is noise relative to what a single voter
